@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import org.deepblue.dailyroutine.springmvc.dao.UserDao;
 import org.deepblue.dailyroutine.springmvc.model.User;
 
@@ -39,8 +38,8 @@ public class UserServiceImpl implements UserService{
 		if(entity!=null){
 			entity.setId(user.getId());
 			entity.setPassword(user.getPassword());
-			entity.setFirstName(user.getFirstName());
-			entity.setLastName(user.getLastName());
+			entity.setFirst_name(user.getFirst_name());
+			entity.setLast_name(user.getLast_name());
 			//status & deleted have default values of 1
 		}
 	}
@@ -65,4 +64,13 @@ public class UserServiceImpl implements UserService{
 		return ( user == null || ((id != null) && (user.getId() == id)));
 	}
 	
+	public boolean isEntryCorrect(String username, String password) {
+		User user = findByUsername(username);
+		return ( user == null || !user.getPassword().equals(password) );
+	}
+	
+	public int findIdbyUsername(String username) {
+		User user = findByUsername(username);
+		return user.getId();
+	}
 }

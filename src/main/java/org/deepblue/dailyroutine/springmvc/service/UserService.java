@@ -20,4 +20,7 @@ public interface UserService {
 	
 	boolean isUsernameUnique(Integer id, String username);
 
+	boolean isEntryCorrect(String username, String password);
+	
+	int findIdbyUsername(String username);
 }

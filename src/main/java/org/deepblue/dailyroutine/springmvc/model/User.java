@@ -32,16 +32,26 @@ public class User implements Serializable{
 		
 	@NotEmpty @Length(max=30)
 	@Column(name="FIRST_NAME", nullable=false)
-	String firstName;
+	String first_name;
 
 	@NotEmpty @Length(max=30)
 	@Column(name="LAST_NAME", nullable=false)
-	String lastName;
+	String last_name;
 
 	@Column(name="STATUS", nullable=false)
 	char status ='1';
 	
 	@Column(name="DELETED", nullable=false)
 	char deleted ='1';
+
+//	public User(String username, String password, String first_name, String last_name) {
+//		this.username = username;
+//		this.password = password;
+//		this.first_name = first_name;
+//		this.last_name = last_name;
+//	}
+//	
+//	public User(){
+//	}
 
 }

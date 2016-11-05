@@ -15,5 +15,4 @@ public interface UserDao {
 	void deleteByUsername(String username);
 	
 	List<User> findAllUsers();
-
 }

@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.NoResultException;
 
 import org.springframework.stereotype.Repository;
-
 import org.deepblue.dailyroutine.springmvc.model.User;
 
 @Repository("userDao")
@@ -17,7 +16,6 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 	}
 
 	public User findByUsername(String username) {
-		System.out.println("USERNAME : "+username);
 		try{
 			User user = (User) getEntityManager()
 					.createQuery("SELECT u FROM User u WHERE u.username LIKE :username")
@@ -32,7 +30,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 	@SuppressWarnings("unchecked")
 	public List<User> findAllUsers() {
 		List<User> users = getEntityManager()
-				.createQuery("SELECT u FROM User u WHERE u.deleted = '1' ORDER BY u.firstName ASC")
+				.createQuery("SELECT u FROM User u WHERE u.deleted = '1' ORDER BY u.first_name ASC")
 				.getResultList();
 		return users;
 	}

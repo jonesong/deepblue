@@ -15,32 +15,20 @@ import org.hibernate.validator.constraints.NotEmpty;
 import lombok.Data;
 
 @Entity
-@Table(name="TASKS")
+@Table(name="MODULES")
 @Data // All fields are private and final. Getters and setters are generated (https://projectlombok.org/features/Value.html)
-public class Task implements Serializable{
+public class Module implements Serializable{
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	Integer id;
 
 	@NotEmpty
-	@Column(name="PROJECT_ID", nullable=false)
-	Integer project_id;
+	@Column(name="USER_ID", nullable=false)
+	Integer user_id;
 
-	@NotEmpty @Length(max=20)
+	@NotEmpty @Length(max=30)
 	@Column(name="NAME", unique=true, nullable=false)
 	String name;
-	
-	@Length(max=10)
-	@Column(name="DUE_DATE", nullable=true)
-	String due_date;
-	
-	@Length(max=100)
-	@Column(name="NOTE", nullable=true)
-	String note;
-	
-	@NotEmpty
-	@Column(name="DONE", nullable=false)
-	String done ="1";
 	
 	@NotEmpty
 	@Column(name="DELETED", nullable=false)

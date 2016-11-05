@@ -15,7 +15,8 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
-
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 //import org.deepblue.dailyroutine.springmvc.converter.RoleToUserProfileConverter;
 
 
@@ -29,7 +30,6 @@ public class AppConfig extends WebMvcConfigurerAdapter{
 //	@Autowired
 //	RoleToUserProfileConverter roleToUserProfileConverter;
 	
-
 	/**
      * Configure ViewResolvers to deliver preferred views.
      */
